@@ -1,3 +1,3 @@
-module github.com/shuwenzhao668/apex-bank
+module github.com/ShuwenZhao/apex-bank-sw
 
 go 1.23.1
