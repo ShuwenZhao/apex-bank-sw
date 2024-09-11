@@ -44,7 +44,20 @@ jobs:
         curl -L https://github.com/golang-migrate/migrate/releases/download/v4.18.1/migrate.linux-amd64.tar.gz | tar xvz
         sudo mv migrate /usr/bin/migrate
         which migrate
-
+    
+    - name: Wait for Postgres to be ready
+      run: |
+        until pg_isready -h localhost -p 5432; do
+        echo "Waiting for postgres...";
+        sleep 5;
+        done
+  
+    - name: Create database
+      run: |
+        psql -h localhost -U root -c "CREATE DATABASE simple_bank;"
+      env:
+        PGPASSWORD: secret
+    
     - name: Run migrations
       run: make migrateup
 
