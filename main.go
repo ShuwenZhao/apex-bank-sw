@@ -7,6 +7,7 @@ import (
 	"github.com/ShuwenZhao/apex-bank-sw/api"
 	db "github.com/ShuwenZhao/apex-bank-sw/db/sqlc"
 	"github.com/ShuwenZhao/apex-bank-sw/util"
+	_ "github.com/golang/mock/mockgen/model"
 	_ "github.com/lib/pq"
 )
 
