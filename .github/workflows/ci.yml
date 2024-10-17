@@ -54,7 +54,7 @@ jobs:
   
     - name: Create database
       run: |
-        psql -h localhost -U root -d postgres -c "CREATE DATABASE simple_bank;"
+        psql -h localhost -U root -d postgres -c "CREATE DATABASE IF NOT EXISTS simple_bank;"
       env:
         PGPASSWORD: secret
     
