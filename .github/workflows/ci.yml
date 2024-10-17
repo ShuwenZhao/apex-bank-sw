@@ -51,12 +51,6 @@ jobs:
         echo "Waiting for postgres...";
         sleep 10;
         done
-  
-    - name: Create database
-      run: |
-        psql -h localhost -U root -d postgres -c "CREATE DATABASE IF NOT EXISTS simple_bank;"
-      env:
-        PGPASSWORD: secret
     
     - name: Run migrations
       run: make migrateup
